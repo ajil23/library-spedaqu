@@ -16,7 +16,7 @@
     <li class="{{'dashboard' == request()->path() ? 'nav-item active' : 'nav-item'}}">
         <a class="nav-link" href="{{route('dashboard')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
+            <span>Beranda</span></a>
     </li>
     
     <!-- Nav Item Collapse Menu -->
@@ -26,8 +26,8 @@
             <span>Inventaris</span></a>
     </li>
     
-    <li class="{{'produk/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
-        <a class="nav-link" href="#">
+    <li class="{{'buku/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
+        <a class="nav-link" href="{{route('buku.view')}}">
             <i class="fas fa-solid fa-book-open"></i>
             <span>Buku</span></a>
     </li>
