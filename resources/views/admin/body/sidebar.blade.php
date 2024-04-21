@@ -32,14 +32,14 @@
             <span>Buku</span></a>
     </li>
 
-    <li class="{{'produk/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
-        <a class="nav-link" href="#">
+    <li class="{{'ebuku/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
+        <a class="nav-link" href="{{route('ebuku.view')}}">
             <i class="fas fa-solid fa-book"></i>
             <span>E-book</span></a>
     </li>
 
-    <li class="{{'produk/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
-        <a class="nav-link" href="#">
+    <li class="{{'kategori/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
+        <a class="nav-link" href="{{route('cat.view')}}">
             <i class="fas fa-solid fa-icons"></i>
             <span>Kategori</span></a>
     </li>
