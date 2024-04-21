@@ -34,7 +34,7 @@
                                     <a href="{{route('cat.edit', $item->id)}}" class="d-none d-sm-inline-block btn btn-warning shadow"><i
                                         class="fas fa-solid fa-pen fa-sm text-white-50"></i> Ubah
                                     </a>
-                                    <a href="{{route('cat.delete', $item->id)}}" class="d-none d-sm-inline-block btn btn-danger shadow"><i
+                                    <a href="{{route('cat.delete', $item->id)}}" onclick="return confirm('Apakah anda yakin?')" class="d-none d-sm-inline-block btn btn-danger shadow"><i
                                         class="fas fa-solid fa-eraser fa-sm text-white-50"></i> Hapus
                                     </a>
                                 </td>

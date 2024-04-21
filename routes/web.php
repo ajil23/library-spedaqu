@@ -21,7 +21,10 @@ Route::middleware([
     Route::prefix('buku')->group(function () {
         Route::get('/view', [BukuController::class, 'index'])->name('buku.view');
         Route::get('/add', [BukuController::class, 'add'])->name('buku.add');
-        Route::get('/edit', [BukuController::class, 'edit'])->name('buku.edit');
+        Route::post('/store', [BukuController::class, 'store'])->name('buku.store');
+        Route::get('/edit/{id}', [BukuController::class, 'edit'])->name('buku.edit');
+        Route::post('/update/{id}', [BukuController::class, 'update'])->name('buku.update');
+        Route::get('/hapus/{id}', [BukuController::class, 'delete'])->name('buku.delete');
     });
 
     Route::prefix('kategori')->group(function () {
