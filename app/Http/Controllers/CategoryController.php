@@ -20,7 +20,7 @@ class CategoryController extends Controller
         $datakategori = new Category();
         $datakategori->nama_kategori = $request->nama_kategori;
         $datakategori->save();
-        return redirect()->route('cat.view');
+        return redirect()->route('cat.view')->with('message', 'Kategori berhasil ditambahkan!');
     }
 
     public function edit($id){
@@ -32,12 +32,12 @@ class CategoryController extends Controller
         $editkategori = Category::find($id);
         $editkategori->nama_kategori = $request->nama_kategori;
         $editkategori->update();
-        return redirect()->route('cat.view');
+        return redirect()->route('cat.view')->with('message', 'Kategori berhasil diubah!');
     }
 
     public function delete(string $id){
         $deletekategori = Category::find($id);
         $deletekategori->delete();
-        return redirect()->route('cat.view');
+        return redirect()->route('cat.view')->with('message', 'Kategori berhasil dihapus!');
     }
 }

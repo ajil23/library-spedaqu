@@ -20,6 +20,7 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
+                                <th><center>No</center></th>
                                 <th><center>Judul</center></th>
                                 <th><center>Penerbit</center></th>
                                 <th><center>Kategori</center></th>
@@ -29,23 +30,27 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($databuku as $item)
                             <tr>
-                                <td><center>Ilmu Pengetahuan Alam Kelas VII</center></td>
-                                <td><center>Indah Cahya Grup</center></td>
-                                <td><center>Alam</center></td>
-                                <td><center>61</center></td>
-                                <td><center>125</center></td>
+                                <td><center>{{$loop->iteration}}</center></td>
+                                <td><center>{{$item->judul}}</center></td>
+                                <td><center>{{$item->penerbit}}</center></td>
+                                <td><center>{{$item->kategori->nama_kategori}}</center></td>
+                                <td><center>{{$item->halaman}}</center></td>
+                                <td><center>{{$item->jumlah}}</center></td>
                                 <td colspan="2">
-                                    <a href="{{route('buku.edit')}}" class="d-none d-sm-inline-block btn btn-warning shadow"><i
+                                    <a href="{{route('buku.edit', $item->id)}}" class="d-none d-sm-inline-block btn btn-warning shadow"><i
                                         class="fas fa-solid fa-pen fa-sm text-white-50"></i> Ubah
                                     </a>
-                                    <a href="#" class="d-none d-sm-inline-block btn btn-danger shadow"><i
+                                    <a href="{{route('buku.delete', $item->id)}}" onclick="return confirm('Apakah anda yakin?')" class="d-none d-sm-inline-block btn btn-danger shadow"><i
                                         class="fas fa-solid fa-eraser fa-sm text-white-50"></i> Hapus
                                     </a>
                                 </td>
-                            </tr>
+                            </tr>  
+                            @endforeach
                         </tbody>
                     </table>
+                    {{$databuku->links('pagination::bootstrap-5')}}
                 </div>
             </div>
         </div>
