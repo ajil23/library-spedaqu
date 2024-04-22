@@ -2,31 +2,51 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Ebook;
 use Illuminate\Http\Request;
 
 class EbookController extends Controller
 {
     public function index(){
-        return view('page.ebook.ebook_view');
+        $dataebook = Ebook::paginate(4);
+        return view('page.ebook.ebook_view', ['dataebook' => $dataebook]);
     }
 
     public function add(){
-        return view('page.ebook.ebook_add');
+        $datakategori = Category::all();
+        return view('page.ebook.ebook_add', compact('datakategori'));
     }
 
-    public function store(){
-
+    public function store(Request $request){
+        $dataebook = new Ebook();
+        $dataebook->judul = $request->judul;
+        $dataebook->kategori_id = $request->kategori_id;
+        $dataebook->halaman = $request->halaman;
+        $dataebook->cover = "gambar";
+        $dataebook->save();
+        return redirect()->route('ebuku.view')->with('message', 'E-book berhasil ditambahkan!');
     }
 
-    public function edit(){
-        return view('page.ebook.ebook_edit');
+    public function edit($id){
+        $editebook = Ebook::find($id);
+        $datakategori = Category::all();
+        return view('page.ebook.ebook_edit', compact('editebook', 'datakategori'));
     }
 
-    public function update(){
-
+    public function update(Request $request, $id){
+        $dataebook = Ebook::find($id);
+        $dataebook->judul = $request->judul;
+        $dataebook->kategori_id = $request->kategori_id;
+        $dataebook->halaman = $request->halaman;
+        $dataebook->cover = "gambar";
+        $dataebook->update();
+        return redirect()->route('ebuku.view')->with('message', 'E-book berhasil diubah!');
     }
 
-    public function delete(){
-        
+    public function delete($id){
+        $dataebook = Ebook::find($id);
+        $dataebook->delete();
+        return redirect()->route('ebuku.view')->with('message', 'E-book berhasil dihapus!');
     }
 }

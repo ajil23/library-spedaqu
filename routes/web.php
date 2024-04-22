@@ -39,7 +39,10 @@ Route::middleware([
     Route::prefix('ebuku')->group(function () {
         Route::get('/view', [EbookController::class, 'index'])->name('ebuku.view');
         Route::get('/add', [EbookController::class, 'add'])->name('ebuku.add');
-        Route::get('/edit', [EbookController::class, 'edit'])->name('ebuku.edit');
+        Route::post('/store', [EbookController::class, 'store'])->name('ebuku.store');
+        Route::get('/edit/{id}', [EbookController::class, 'edit'])->name('ebuku.edit');
+        Route::post('/update/{id}', [EbookController::class, 'update'])->name('ebuku.update');
+        Route::get('/hapus/{id}', [EbookController::class, 'delete'])->name('ebuku.delete');
     });
 });
 
