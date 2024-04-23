@@ -25,6 +25,7 @@
                                 <th><center>Kategori</center></th>
                                 <th><center>Jumlah Halaman</center></th>
                                 <th><center>Sampul</center></th>
+                                <th><center>PDF</center></th>
                                 <th><center>Opsi</center></th>
                             </tr>
                         </thead>
@@ -35,12 +36,15 @@
                                 <td><center>{{$item->judul}}</center></td>
                                 <td><center>{{$item->kategori->nama_kategori}}</center></td>
                                 <td><center>{{$item->halaman}}</center></td>
-                                <td><center>{{$item->cover}}</center></td>
+                                <td><center><img src="{{ asset('storage/'.$item->image) }}" alt="sampul" style="height: 5rem; width:4rem"></center></td>
+                                <td><a href="{{route('ebuku.pdf',$item->id)}}" target="_blank">
+                                    <center><i class="fas fa-eye"></i><b>Lihat</b></center>
+                                    </a></td>
                                 <td colspan="2">
                                     <a href="{{route('ebuku.edit', $item->id)}}" class="d-none d-sm-inline-block btn btn-warning shadow"><i
                                         class="fas fa-solid fa-pen fa-sm text-white-50"></i> Ubah
                                     </a>
-                                    <a href="{{route('ebuku.delete', $item->id)}}" class="d-none d-sm-inline-block btn btn-danger shadow"><i
+                                    <a href="{{route('ebuku.delete', $item->id)}}" onclick="return confirm('Apakah anda yakin?')" class="d-none d-sm-inline-block btn btn-danger shadow"><i
                                         class="fas fa-solid fa-eraser fa-sm text-white-50"></i> Hapus
                                     </a>
                                 </td>

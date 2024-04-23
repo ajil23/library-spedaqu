@@ -11,7 +11,7 @@ class Ebook extends Model
 
     protected $table = "ebook";
     protected $primaryKey = 'id';
-    protected $fillable = ['judul', 'kategori_id', 'halaman', 'cover'];
+    protected $fillable = ['judul', 'kategori_id', 'halaman', 'image', 'pdf'];
 
     public function kategori(){
         return $this->belongsTo(Category::class,'kategori_id','id');

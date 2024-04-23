@@ -17,6 +17,10 @@
                         <label for="formGroupExampleInput" class="form-label">Judul E-Book</label>
                         <input type="text" class="form-control" id="judul" name="judul" value="{{$editebook->judul}}" placeholder="Judul Lengkap Buku">
                     </div>
+                    <div class="mb-3">
+                        <label for="formGroupExampleInput" class="form-label">File PDF E-Book</label>
+                        <input type="file" class="form-control" id="pdf" name="pdf" placeholder="File PDF Ebook" value="{{$editebook->pdf}}">
+                    </div>
                     <div class="row g-3">
                         <div class="col">
                             <label for="inputEmail4" class="form-label">Jumlah Halaman</label>
@@ -35,7 +39,7 @@
                         </div>
                         <div class="col">
                             <label for="inputEmail4" class="form-label">Sampul</label>
-                            <input type="file" class="form-control" name="cover" value="{{$editebook->cover}}" placeholder="Cover ebook" aria-label="Jumlah Buku">
+                            <input type="file" class="form-control" name="file" value="{{$editebook->cover}}" placeholder="Cover ebook" aria-label="Jumlah Buku">
                         </div>
                     </div>
                     <br>
