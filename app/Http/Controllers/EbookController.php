@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Ebook;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class EbookController extends Controller
 {
@@ -23,7 +24,22 @@ class EbookController extends Controller
         $dataebook->judul = $request->judul;
         $dataebook->kategori_id = $request->kategori_id;
         $dataebook->halaman = $request->halaman;
-        $dataebook->cover = "gambar";
+        if ($request->hasFile('image')) {
+            $request->validate([
+                'image' => 'required|image|mimes:jpeg,jpg,png|max:5120',
+            ]);
+            $productImage = $request->file('image')->store('image');
+            $dataebook->image = $productImage;
+        }
+
+        if ($request->hasFile('pdf')) {
+            $request->validate([
+                'pdf' => 'required|mimes:pdf|max:2048',
+            ]);
+            $pdfFile = $request->file('pdf');
+            $filebook  = $pdfFile->store('pdf', 'public');
+            $dataebook->pdf = $filebook ;
+        }
         $dataebook->save();
         return redirect()->route('ebuku.view')->with('message', 'E-book berhasil ditambahkan!');
     }
@@ -39,7 +55,23 @@ class EbookController extends Controller
         $dataebook->judul = $request->judul;
         $dataebook->kategori_id = $request->kategori_id;
         $dataebook->halaman = $request->halaman;
-        $dataebook->cover = "gambar";
+        if ($request->hasFile('image')) {
+            $request->validate([
+                'image' => 'required|image|mimes:jpeg,jpg,png|max:5120',
+            ]);
+            Storage::delete($dataebook->image);
+            $productImage = $request->file('image')->store('image');
+            $dataebook->image = $productImage;
+        }
+        if ($request->hasFile('pdf')) {
+            $request->validate([
+                'pdf' => 'required|mimes:pdf|max:2048',
+            ]);
+            Storage::delete($dataebook->pdf);
+            $pdfFile = $request->file('pdf');
+            $filebook  = $pdfFile->store('pdf', 'public');
+            $dataebook->pdf = $filebook ;
+        }
         $dataebook->update();
         return redirect()->route('ebuku.view')->with('message', 'E-book berhasil diubah!');
     }
@@ -48,5 +80,11 @@ class EbookController extends Controller
         $dataebook = Ebook::find($id);
         $dataebook->delete();
         return redirect()->route('ebuku.view')->with('message', 'E-book berhasil dihapus!');
+    }
+
+    public function pdf(string $id){
+        $dataebook = Ebook::findOrFail($id); 
+        $pdfPath = public_path('storage/' . $dataebook->pdf);
+        return response()->file($pdfPath);
     }
 }
