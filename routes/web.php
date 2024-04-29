@@ -3,10 +3,12 @@
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EbookController;
+use App\Models\Ebook;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    $ebook = Ebook::all();
+    return view('welcome', compact('ebook'));
 });
 
 Route::middleware([
