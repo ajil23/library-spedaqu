@@ -5,37 +5,56 @@
    <div class="container-fluid">
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Tambah Data Buku</h1>
+            <h1 class="h3 mb-0 text-gray-800">Tambah Data Inventaris</h1>
         </div>
         
         {{-- Input Group --}}
         <div class="card shadow mb-4">
             <div class="card-body">
-                <div class="mb-3">
-                    <label for="formGroupExampleInput" class="form-label">Judul Buku</label>
-                    <input type="text" class="form-control" id="judul" placeholder="Judul Lengkap Buku">
-                </div>
-                <div class="mb-3">
-                    <label for="formGroupExampleInput" class="form-label">Penerbit</label>
-                    <input type="text" class="form-control" id="penerbit" placeholder="Penerbit Buku">
-                </div>
+               <form action="{{route('inventaris.store')}}" method="POST">
+                @csrf
                 <div class="row g-3">
                     <div class="col">
-                        <label for="inputEmail4" class="form-label">Jumlah Halaman</label>
-                        <input type="number" class="form-control" placeholder="Halaman" aria-label="Halaman">
+                        <label for="inputEmail4" class="form-label">Nama</label>
+                        <input type="text" class="form-control" placeholder="Nama peminjam buku" aria-label="Nama peminjam buku" name="nama">
                     </div>
                     <div class="col">
-                        <label for="inputEmail4" class="form-label">Kategori</label>
-                        <select class="form-control" aria-label="Default select example">
-                            <option selected>Pilih Kategori Buku</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                        <label for="inputEmail4" class="form-label">Judul Buku</label>
+                        <select class="form-control" name="buku_id" aria-label="Default select example" required>
+                            <option selected>Pilih Judul Buku</option>
+                            @foreach ($databuku as $buku)
+                                <option value="{{ $buku->id }}">
+                                    {{ $buku->judul}}
+                                </option>
+                            @endforeach
                           </select>
                     </div>
                     <div class="col">
-                        <label for="inputEmail4" class="form-label">Jumlah Buku</label>
-                        <input type="number" class="form-control" placeholder="Jumlah Buku Yang Tersedia" aria-label="Jumlah Buku">
+                        <label for="inputEmail4" class="form-label">Kondisi Sebelum Peminjaman</label>
+                        <select class="form-control" aria-label="Default select example" name="kondisi_sebelum">
+                            <option selected>Pilih Kondisi Buku</option>
+                            <option value="Rusak">Rusak</option>
+                            <option value="Baik">Baik</option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+                <div class="row g-3">
+                    <div class="col">
+                        <label for="inputEmail4" class="form-label">Kondisi Setelah Peminjaman</label>
+                        <select class="form-control" aria-label="Default select example" name="kondisi_sesudah">
+                            <option selected>Pilih Kondisi Buku</option>
+                            <option value="Rusak">Rusak</option>
+                            <option value="Baik">Baik</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="inputEmail4" class="form-label">Tanggal Peminjaman</label>
+                        <input type="date" class="form-control" aria-label="Tanggal Peminjaman" name="peminjaman">
+                    </div>
+                    <div class="col">
+                        <label for="inputEmail4" class="form-label">Tanggal Pengembalian</label>
+                        <input type="date" class="form-control" aria-label="Tanggal Pengembalian" name="pengembalian">
                     </div>
                 </div>
                 <br>
@@ -43,6 +62,7 @@
                     <button type="submit" class="btn btn-success shadow">Simpan</button>
                     <button type="button" onclick="history.back()" class="btn btn-danger shadow">Batalkan</button>
                 </div>
+               </form>
             </div>
         </div>
    </div>
