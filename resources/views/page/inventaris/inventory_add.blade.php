@@ -16,7 +16,7 @@
                 <div class="row g-3">
                     <div class="col">
                         <label for="inputEmail4" class="form-label">Nama</label>
-                        <input type="text" class="form-control" placeholder="Nama peminjam buku" aria-label="Nama peminjam buku" name="nama">
+                        <input type="text" class="form-control" placeholder="Nama peminjam buku" aria-label="Nama peminjam buku" name="nama" required>
                     </div>
                     <div class="col">
                         <label for="inputEmail4" class="form-label">Judul Buku</label>
@@ -31,7 +31,7 @@
                     </div>
                     <div class="col">
                         <label for="inputEmail4" class="form-label">Kondisi Sebelum Peminjaman</label>
-                        <select class="form-control" aria-label="Default select example" name="kondisi_sebelum">
+                        <select class="form-control" aria-label="Default select example" name="kondisi_sebelum" required>
                             <option selected>Pilih Kondisi Buku</option>
                             <option value="Rusak">Rusak</option>
                             <option value="Baik">Baik</option>
@@ -50,7 +50,7 @@
                     </div>
                     <div class="col">
                         <label for="inputEmail4" class="form-label">Tanggal Peminjaman</label>
-                        <input type="date" class="form-control" aria-label="Tanggal Peminjaman" name="peminjaman">
+                        <input type="date" class="form-control" aria-label="Tanggal Peminjaman" name="peminjaman" required>
                     </div>
                     <div class="col">
                         <label for="inputEmail4" class="form-label">Tanggal Pengembalian</label>
