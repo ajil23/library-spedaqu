@@ -150,7 +150,7 @@
         <div class="container">
 
           <div class="about-banner img-holder" style="--width: 720; --height: 960;">
-            <img src="./assets/images/about-banner.jpg" width="720" height="960" loading="lazy" alt="about banner"
+            <img src="./assets/images/tim.jpg" width="720" height="960" loading="lazy" alt="about banner"
               class="img-cover">
 
           </div>

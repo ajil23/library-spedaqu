@@ -20,8 +20,8 @@
     </li>
     
     <!-- Nav Item Collapse Menu -->
-    <li class="{{'produk/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
-        <a class="nav-link" href="#">
+    <li class="{{'inventaris/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
+        <a class="nav-link" href="{{route('inventaris.view')}}">
             <i class="fas fa-solid fa-clipboard-list"></i>
             <span>Inventaris</span></a>
     </li>

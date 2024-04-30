@@ -36,7 +36,7 @@
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                 Total Buku</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">4</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$buku}}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-book fa-2x text-gray-300"></i>
@@ -54,7 +54,7 @@
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                 Total E-book</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">21</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$ebook}}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-book-open fa-2x text-gray-300"></i>
@@ -70,9 +70,9 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Peminjamanan
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Inventaris
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">15</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$invent}}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
