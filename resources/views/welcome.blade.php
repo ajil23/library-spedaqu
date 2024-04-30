@@ -5,13 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- 
-    - primary meta tags
-  -->
-  <title>Perpustakaan Digital - SMP Darul Quran</title>
-  <meta name="title" content="Perpustakaan Digital - SMP Darul Quran">
-  <meta name="description" content="This is a Book eCommerce html template made by codewithsadee">
+  <title>SIMBA - SPEMDAQU</title>
 
   <!-- 
     - favicon
@@ -29,15 +23,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Work+Sans:wght@400;500;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&family=Roboto:wght@400;500;700&display=swap"
     rel="stylesheet">
-
-  <!-- 
-    - preload images
-  -->
-  <link rel="preload" as="image" href="./assets/images/hero-banner.png">
-  <link rel="preload" as="image" href="./assets/images/hero-bg.jpg">
-
 </head>
 
 <body id="top">
@@ -47,66 +34,38 @@
   -->
 
   <header class="header" data-header>
-    <div class="header-top">
-      <div class="container">
+    <div class="container">
 
-        <a href="#" class="logo">
-          <img src="./assets/images/logo.svg" width="138" height="28" alt="booken home">
-        </a>
+      <a href="#" class="logo">SIMBA</a>    
+      <!-- Sistem Inventaris & Media Baca Siswa -->
+      <nav class="navbar container" data-navbar>
+        <ul class="navbar-list">
 
-        <div class="header-action">
-          <button class="nav-open-btn" aria-label="open menu" title="Open Menu" data-nav-toggler>
-            <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
-          </button>
+          <li>
+            <a href="#home" class="navbar-link" data-nav-link>Beranda</a>
+          </li>
 
-          <a href="{{ route('login') }}">
-            <button class="header-action-btn" aria-label="Admin" title="Admin">
-                <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
-              </button>
-        </a>
-        </div>
+          <li>
+            <a href="#collection" class="navbar-link" data-nav-link>Koleksi</a>
+          </li>
 
-      </div>
+          <li>
+            <a href="#about" class="navbar-link" data-nav-link>Tim Kami</a>
+          </li>
+
+          <li>
+            <a href="{{ route('login') }}" class="btn btn-primary">Masuk</a>
+          </li>
+
+        </ul>
+      </nav>
+
+      <button class="nav-toggle-btn" aria-label="Toggle menu" data-nav-toggler>
+        <ion-icon name="menu-outline" class="open"></ion-icon>
+        <ion-icon name="close-outline" class="close"></ion-icon>
+      </button>
+
     </div>
-
-    <div class="header-bottom" data-navbar>
-      <div class="container">
-
-        <nav class="navbar">
-
-          <button class="nav-close-btn" data-nav-toggler aria-label="clsoe menu" title="Clsoe Menu">
-            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
-          </button>
-
-          <div class="navbar-top">
-            <input type="search" name="search" placeholder="Search our store" class="input-field">
-
-            <button class="search-btn" aria-label="Search">
-              <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
-            </button>
-          </div>
-
-          <ul class="navbar-list">
-
-            <li>
-              <a href="#" class="navbar-link">Beranda</a>
-            </li>
-
-            <li>
-              <a href="#ebook" class="navbar-link">E-Book</a>
-            </li>
-
-            <li>
-              <a href="#us" class="navbar-link">Tim Kami</a>
-            </li>
-
-          </ul>
-
-        </nav>
-      </div>
-    </div>
-
-    <div class="overlay" data-overlay data-nav-toggler></div>
   </header>
 
   <main>
@@ -116,254 +75,155 @@
         - #HERO
       -->
 
-      <section class="section hero has-bg-image" aria-label="home"
-        style="background-image: url('./assets/images/hero-bg.jpg')">
+      <section class="section hero" id="home" aria-label="hero">
         <div class="container">
 
           <div class="hero-content">
 
-            <h1 class="h1 hero-title has-after">
-              Selamat Datang &<br>
-              Selamat Membaca
-            </h1>
+            <p class="hero-subtitle">Perpustakaan Digital SMP Darul Quran</p>
+
+            <h1 class="h1 hero-title">Selamat Datang </h1>
 
             <p class="hero-text">
-              Website ini adalah perpustakaan digital bagi para siswa di SMP Darul Quran Glenmore. Sebagai siswa anda dapat membaca dan belajar menggunakan media e-book yang sudah kami sediakan.
+              Simba merupakan sebuah website pengelolaan inventaris perpustakaan sekaligus perpustakaan digital bagi para masyarakat sekolah di lingkungan SMP Darul Quran Glenmore. 
             </p>
 
-            <div class="btn-wrapper">
-
-              <a href="#ebook" class="btn">
-                <span class="span">Mulai Membaca</span>
-
-                <ion-icon name="arrow-forward-outline"></ion-icon>
-              </a>              
-            </div>
+            <a href="#collection" class="btn btn-primary">Mulai Membaca</a>
 
           </div>
 
           <figure class="hero-banner">
-            <img src="./assets/images/hero-banner.png" width="475" height="600" alt="hero banner" class="w-100">
+            <img src="./assets/images/read.png" width="720" height="673" alt="hero banner" class="w-100">
           </figure>
 
         </div>
       </section>
 
-
       <!-- 
-        - #FEATURED COLLECTION
+        - #collection
       -->
 
-      <section class="section featured" aria-label="featured collection"  id="ebook">
+      <section class="section project" id="collection" aria-label="project">
         <div class="container">
 
-          <h2 class="h2 section-title">Koleksi E-Book Kami</h2>
+          <h2 class="h2 section-title">Koleksi Ebook Kami</h2>
 
           <p class="section-text">
-            Kami memiliki beberapa koleksi e-book yang dapat anda baca secara online.
+            Kami memiliki beberapa koleksi e-book yang dapat anda baca secara online. 
           </p>
-          
-        <div class="section-text">
-          <div class="input-wrapper">
-            <input type="search" name="search" placeholder="Cari buku..." class="input-field">
-  
-            <button class="btn btn-primary"><ion-icon name="search-outline"></ion-icon></button>
-          </div>
-        </div>
 
           <ul class="grid-list">
             @foreach ($ebook as $item)
             <li>
-                <div class="product-card">
-                  <div class="card-banner img-holder" style="--width: 384; --height: 480;">
-                    <img src="{{asset('storage/'.$item->image)}}" width="384" height="480" loading="lazy" alt="cover" class="img-cover">
-                    <div class="card-action">
-                        <a href="{{route('ebuku.pdf',$item->id)}}" target="_blank">
-                            <button class="action-btn" aria-label="Baca" title="Baca">
-                                <ion-icon name="book-outline"></ion-icon>
-                            </button>
-                        </a>
-                    </div>
-                  </div>
-  
-                  <div class="card-content">
-                    <h3 class="h3">
-                      <a href="#" class="card-title">{{$item->judul}}</a>
-                    </h3>
-                    <h2 class="card-price">{{$item->kategori->nama_kategori}}</h2>
-                  </div>
-  
+              <div class="project-card">
+
+                <figure class="card-banner img-holder" style="--width: 510; --height: 700;">
+                  <img src="{{asset('storage/'.$item->image)}}" width="510" height="700" loading="lazy"
+                    alt="Sampul {{$item->judul}}" class="img-cover">
+                </figure>
+
+                <div class="card-content">
+
+                  <p class="card-subtitle">{{$item->kategori->nama_kategori}}</p>
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">{{$item->judul}}</a>
+                  </h3>
+
+                  <a href="{{route('ebuku.pdf',$item->id)}}" class="btn btn-primary" target="_blank">Baca Buku</a>
+
                 </div>
-              </li>
+
+              </div>
+            </li>
             @endforeach
           </ul>
 
         </div>
       </section>
 
-
       <!-- 
-        - #BLOG
+        - #ABOUT
       -->
 
-      <section class="section blog" aria-label="blog" id="us">
+      <section class="section about" id="about" aria-label="about">
         <div class="container">
 
-          <h2 class="h2 section-title">Tim Kami</h2>
+          <div class="about-banner img-holder" style="--width: 720; --height: 960;">
+            <img src="./assets/images/about-banner.jpg" width="720" height="960" loading="lazy" alt="about banner"
+              class="img-cover">
 
-          <p class="section-text">
-            Kami mahasiswa program Kampus Mengajar yang berasal dari Politeknik Negeri Banyuwangi & Universitas PGRI Banyuwangi.
-          </p>
+          </div>
 
-          <ul class="has-scrollbar">
+          <div class="about-content">
 
-            <li class="scrollbar-item">
-              <div class="blog-card">
+            <h2 class="h2 section-title">Tim Kami</h2>
 
-                <figure class="card-banner img-holder" style="--width: 600; --height: 400;">
-                  <img src="./assets/images/blog-1.jpg" width="600" height="400" loading="lazy"
-                    alt="Nada Celia Sinka Audy Ines" class="img-cover">
-                </figure>
+            <p class="section-text">
+              Kami mahasiswa program Kampus Mengajar yang berasal dari Politeknik Negeri Banyuwangi & Universitas PGRI Banyuwangi.
+            </p>
 
-                <div class="card-content">
+            <h3 class="h3">Anggota Kami</h3>
 
-                  <h3 class="h3">
-                    <a href="#" class="card-title">Nada Celia Sinka Audy Ines</a>
-                  </h3>
+            <ul class="about-list">
 
-                  <ul class="card-meta-list">
+              <li class="about-item">
+                <ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon>
 
-                    <li class="meta-item">
-                      <time class="meta-link" datetime="2022-03-04">Politeknik Negeri Banyuwangi</time>
-                    </li>
+                <p class="section-text">
+                  Nada Celia Sinka Audy Ines
+                </p>
+              </li>
 
-                    <li class="meta-item">
-                      <a href="#" class="meta-link">Bendahara</a>
-                    </li>
+              <li class="about-item">
+                <ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon>
 
-                  </ul>
+                <p class="section-text">
+                  Rafa Putra Anggi Fiansyah
+                </p>
+              </li>
 
-                  <p class="card-text">
-                    The summer holidays are wonderful. Dressing for them can be significantly less so: Packing light...
-                  </p>
+              <li class="about-item">
+                <ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon>
 
-                  <a href="#" class="btn card-btn">Read More...</a>
+                <p class="section-text">
+                  Riko Rayhan Radite Putra Wibowo
+                </p>
+              </li>
 
-                </div>
+              <li class="about-item">
+                <ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon>
 
-              </div>
-            </li>
-            <li class="scrollbar-item">
-              <div class="blog-card">
+                <p class="section-text">
+                  Azril Praya Prasetyo
+                </p>
+              </li>
 
-                <figure class="card-banner img-holder" style="--width: 600; --height: 400;">
-                  <img src="./assets/images/blog-1.jpg" width="600" height="400" loading="lazy"
-                    alt="Significant reading has info" class="img-cover">
-                </figure>
+            </ul>
 
-                <div class="card-content">
+            <h3 class="h3">Misi Kami</h3>
 
-                  <h3 class="h3">
-                    <a href="#" class="card-title">Rafa Putra Anggi Fiansyah</a>
-                  </h3>
+            <p class="section-text">
+              Menjadi mitra guru yang dapat membantu guru dapat meningkatkan literasi dan numerasi anak didik pasca pandemi.
+            </p>
 
-                  <ul class="card-meta-list">
+          </div>
 
-                    <li class="meta-item">
-                      <time class="meta-link" datetime="2022-03-04">Politeknik Negeri Banyuwangi</time>
-                    </li>
+        </div>
+      </section>
 
-                    <li class="meta-item">
-                      <a href="#" class="meta-link">Medkom</a>
-                    </li>
+      <!-- 
+        - #CTA
+      -->
 
-                  </ul>
+      <section class="section cta" aria-label="cta" style="background-image: url('./assets/images/cta-bg.jpg')">
+        <div class="container">
 
-                  <p class="card-text">
-                    The summer holidays are wonderful. Dressing for them can be significantly less so: Packing light...
-                  </p>
+          <p class="cta-subtitle">Apakah Anda Adalah Admin?</p>
 
-                  <a href="#" class="btn card-btn">Read More...</a>
+          <h2 class="h2 section-title">Silahkan Masuk Untuk Dapat Mengakses Menu Inventaris & Pengelolaan Website.</h2>
 
-                </div>
-
-              </div>
-            </li>
-            <li class="scrollbar-item">
-              <div class="blog-card">
-
-                <figure class="card-banner img-holder" style="--width: 600; --height: 400;">
-                  <img src="./assets/images/blog-2.jpg" width="600" height="400" loading="lazy"
-                    alt="Riko Rayhan Radite Putra Wibowo" class="img-cover">
-                </figure>
-
-                <div class="card-content">
-
-                  <h3 class="h3">
-                    <a href="#" class="card-title">Riko Rayhan Radite Putra Wibowo</a>
-                  </h3>
-
-                  <ul class="card-meta-list">
-
-                    <li class="meta-item">
-                      <time class="meta-link" datetime="2022-03-04">Universitas PGRI Banyuwangi</time>
-                    </li>
-
-                    <li class="meta-item">
-                      <a href="#" class="meta-link">Sekretaris</a>
-                    </li>
-
-                  </ul>
-
-                  <p class="card-text">
-                    The summer holidays are wonderful. Dressing for them can be significantly less so: Packing light...
-                  </p>
-
-                  <a href="#" class="btn card-btn">Read More...</a>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li class="scrollbar-item">
-              <div class="blog-card">
-
-                <figure class="card-banner img-holder" style="--width: 600; --height: 400;">
-                  <img src="./assets/images/blog-3.jpg" width="600" height="400" loading="lazy"
-                    alt="Azril Praya Prasetyo" class="img-cover">
-                </figure>
-
-                <div class="card-content">
-
-                  <h3 class="h3">
-                    <a href="#" class="card-title">Azril Praya Prasetyo</a>
-                  </h3>
-
-                  <ul class="card-meta-list">
-
-                    <li class="meta-item">
-                      <time class="meta-link" datetime="2022-03-04">Politeknik Negeri Banyuwangi</time>
-                    </li>
-
-                    <li class="meta-item">
-                      <a href="#" class="meta-link">Ketua</a>
-                    </li>
-
-                  </ul>
-
-                  <p class="card-text">
-                    The summer holidays are wonderful. Dressing for them can be significantly less so: Packing light...
-                  </p>
-
-                  <a href="#" class="btn card-btn">Read More...</a>
-
-                </div>
-
-              </div>
-            </li>
-
-          </ul>
+          <a href="{{ route('login') }}" class="btn btn-secondary">Masuk</a>
 
         </div>
       </section>
@@ -375,26 +235,31 @@
     - #FOOTER
   -->
 
-  <footer class="footer has-bg-image" style="background-image: url('./assets/images/section-bg.jpg')">
-    <div class="footer-bottom">
-      <div class="container">
+  <footer class="footer">
+    <div class="container">
 
-        <p class="copyright">
-          Copyright 2024 | Dibuat oleh Mahasiswa Kampus Mengajar 7 - Poliwangi & UNIBA.
-        </p>
+      <p class="copyright">
+        &copy; copyright 2024 | Mahasiswa Kampus Mengajar 7 - <a href="#" class="copyright-link">Poliwangi & Uniba</a>
+      </p>
 
-      </div>
     </div>
-
   </footer>
+
+
+
+
 
   <!-- 
     - #BACK TO TOP
   -->
 
-  <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+  <a href="#top" aria-label="back to top" data-back-top-btn class="back-top-btn">
     <ion-icon name="chevron-up" aria-hidden="true"></ion-icon>
   </a>
+
+
+
+
 
   <!-- 
     - custom js link

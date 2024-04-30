@@ -1,9 +1,7 @@
 'use strict';
 
-
-
 /**
- * add event on elements
+ * add event on element
  */
 
 const addEventOnElem = function (elem, type, callback) {
@@ -19,30 +17,37 @@ const addEventOnElem = function (elem, type, callback) {
 
 
 /**
- * navbar toogle
+ * toggle navbar
  */
 
 const navbar = document.querySelector("[data-navbar]");
-const navTogglers = document.querySelectorAll("[data-nav-toggler]");
-const overlay = document.querySelector("[data-overlay]");
+const navbarLinks = document.querySelectorAll("[data-nav-link]");
+const navToggler = document.querySelector("[data-nav-toggler]");
 
 const toggleNavbar = function () {
   navbar.classList.toggle("active");
-  overlay.classList.toggle("active");
+  navToggler.classList.toggle("active");
 }
 
-addEventOnElem(navTogglers, "click", toggleNavbar);
+addEventOnElem(navToggler, "click", toggleNavbar);
+
+const closeNavbar = function () {
+  navbar.classList.remove("active");
+  navToggler.classList.remove("active");
+}
+
+addEventOnElem(navbarLinks, "click", closeNavbar);
 
 
 
 /**
- * active header & back top btn when window scroll down to 100px
+ * header active
  */
 
 const header = document.querySelector("[data-header]");
 const backTopBtn = document.querySelector("[data-back-top-btn]");
 
-const activeElemOnScroll = function () {
+window.addEventListener("scroll", function () {
   if (window.scrollY > 100) {
     header.classList.add("active");
     backTopBtn.classList.add("active");
@@ -50,33 +55,4 @@ const activeElemOnScroll = function () {
     header.classList.remove("active");
     backTopBtn.classList.remove("active");
   }
-}
-
-addEventOnElem(window, "scroll", activeElemOnScroll);
-
-
-
-/**
- * filter functionality
- */
-
-const filterBtn = document.querySelectorAll("[data-filter-btn]");
-const filterItems = document.querySelectorAll("[data-filter]");
-
-let lastClickedBtn = filterBtn[0];
-
-const filter = function () {
-  lastClickedBtn.classList.remove("active");
-  this.classList.add("active");
-  lastClickedBtn = this;
-
-  for (let i = 0; i < filterItems.length; i++) {
-    if (filterItems[i].dataset.filter === this.dataset.filterBtn) {
-      filterItems[i].style.display = "block";
-    } else {
-      filterItems[i].style.display = "none";
-    }
-  }
-}
-
-addEventOnElem(filterBtn, "click", filter);
+});

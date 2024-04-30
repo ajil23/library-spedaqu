@@ -10,7 +10,7 @@ Route::get('/', function () {
     $ebook = Ebook::all();
     return view('welcome', compact('ebook'));
 });
-
+Route::get('/pdf/{id}', [EbookController::class, 'pdf'])->name('ebuku.pdf');
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -45,7 +45,6 @@ Route::middleware([
         Route::get('/edit/{id}', [EbookController::class, 'edit'])->name('ebuku.edit');
         Route::post('/update/{id}', [EbookController::class, 'update'])->name('ebuku.update');
         Route::get('/hapus/{id}', [EbookController::class, 'delete'])->name('ebuku.delete');
-        Route::get('/pdf/{id}', [EbookController::class, 'pdf'])->name('ebuku.pdf');
     });
 });
 
