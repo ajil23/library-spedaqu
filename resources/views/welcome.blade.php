@@ -239,7 +239,8 @@
     <div class="container">
 
       <p class="copyright">
-        &copy; copyright 2024 | Mahasiswa Kampus Mengajar 7 - <a href="#" class="copyright-link">Poliwangi & Uniba</a>
+        &copy; copyright 2024 | Mahasiswa Kampus Mengajar 7 - <a href="https://www.instagram.com/km7_smpdarulquran_glenmore/"
+        target="_onblank" class="copyright-link">Poliwangi & Uniba</a>
       </p>
 
     </div>

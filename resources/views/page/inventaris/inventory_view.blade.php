@@ -38,13 +38,13 @@
                                 <td><center>{{$item->nama}}</center></td>
                                 <td><center>{{$item->kondisi_sebelum}}</center></td>
                                 <td><center>{{$item->kondisi_sesudah}}</center></td>
-                                <td><center>{{$item->peminjaman}}</center></td>
-                                <td><center>{{$item->pengembalian}}</center></td>
+                                <td><center>{{date('d-m-Y', strtotime($item->peminjaman));}}</center></td>
+                                <td><center>{{date('d-m-Y', strtotime($item->pengembalian));}}</center></td>
                                 <td colspan="2">
-                                    <a href="#" class="d-none d-sm-inline-block btn btn-warning shadow"><i
+                                    <a href="{{route('inventaris.edit', $item->id)}}" class="d-none d-sm-inline-block btn btn-warning shadow"><i
                                         class="fas fa-solid fa-pen fa-sm text-white-50"></i>
                                     </a>
-                                    <a href="#" class="d-none d-sm-inline-block btn btn-danger shadow"><i
+                                    <a href="{{route('inventaris.delete', $item->id)}}" class="d-none d-sm-inline-block btn btn-danger shadow"><i
                                         class="fas fa-solid fa-eraser fa-sm text-white-50"></i> 
                                     </a>
                                 </td>

@@ -30,15 +30,27 @@ class InventarisController extends Controller
         return redirect()->route('inventaris.view')->with('message', 'Data berhasil ditambahkan!');
     }
 
-    public function edit(){
-        return view('page.book.book_edit');
+    public function edit(string $id){
+        $invent = Inventaris::find($id);
+        $databuku = Buku::all();
+        return view('page.inventaris.inventory_edit', compact('invent', 'databuku'));
     }
 
-    public function update(){
-
+    public function update(Request $request, $id){
+        $invent = Inventaris::find($id);
+        $invent->buku_id = $request->buku_id;
+        $invent->nama = $request->nama;
+        $invent->kondisi_sebelum = $request->kondisi_sebelum;
+        $invent->kondisi_sesudah = $request->kondisi_sesudah;
+        $invent->peminjaman = $request->peminjaman;
+        $invent->pengembalian = $request->pengembalian;
+        $invent->update();
+        return redirect()->route('inventaris.view')->with('message', 'Data berhasil diubah!');
     }
 
-    public function delete(){
-        
+    public function delete($id){
+        $inventdelet = Inventaris::find($id);
+        $inventdelet->delete();
+        return redirect()->route('inventaris.view')->with('message', 'Data berhasil dihapus!');
     }
 }
