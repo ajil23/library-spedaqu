@@ -20,7 +20,7 @@
                     </div>
                     <div class="col">
                         <label for="inputEmail4" class="form-label">Judul Buku</label>
-                        <select class="form-control" name="buku_id" aria-label="Default select example" required>
+                        <select class="form-control" name="buku_id" aria-label="Default select example" required disabled>
                             <option value="{{$invent->buku_id}}" selected>{{$invent->buku->judul}}</option>
                             @foreach ($databuku as $buku)
                                 <option value="{{ $buku->id }}">
@@ -31,7 +31,7 @@
                     </div>
                     <div class="col">
                         <label for="inputEmail4" class="form-label">Kondisi Sebelum Peminjaman</label>
-                        <select class="form-control" aria-label="Default select example" name="kondisi_sebelum" required>
+                        <select class="form-control" aria-label="Default select example" name="kondisi_sebelum" required disabled>
                             <option value="{{$invent->kondisi_sebelum}}" selected>{{$invent->kondisi_sebelum}}</option>
                             <option value="Rusak">Rusak</option>
                             <option value="Baik">Baik</option>
@@ -50,7 +50,7 @@
                     </div>
                     <div class="col">
                         <label for="inputEmail4" class="form-label">Tanggal Peminjaman</label>
-                        <input type="date" class="form-control" aria-label="Tanggal Peminjaman" name="peminjaman" value="{{$invent->peminjaman}}">
+                        <input type="date" class="form-control" aria-label="Tanggal Peminjaman" name="peminjaman" value="{{$invent->peminjaman}}" disabled>
                     </div>
                     <div class="col">
                         <label for="inputEmail4" class="form-label">Tanggal Pengembalian</label>
