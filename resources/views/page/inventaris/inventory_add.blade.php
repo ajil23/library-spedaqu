@@ -21,7 +21,7 @@
                     <div class="col">
                         <label for="inputEmail4" class="form-label">Judul Buku</label>
                         <select class="form-control" name="buku_id" aria-label="Default select example" required>
-                            <option selected>Pilih Judul Buku</option>
+                            <option value="">Pilih Judul Buku</option>
                             @foreach ($databuku as $buku)
                                 <option value="{{ $buku->id }}">
                                     {{ $buku->judul}}
@@ -31,19 +31,24 @@
                     </div>
                     <div class="col">
                         <label for="inputEmail4" class="form-label">Kondisi Sebelum Peminjaman</label>
-                        <select class="form-control" aria-label="Default select example" name="kondisi_sebelum" required>
-                            <option selected>Pilih Kondisi Buku</option>
+                        <select class="form-control" name="kondisi_sebelum" id="kondisi_sebelum" required>
+                            <option value="">Pilih Kondisi Buku</option>
                             <option value="Rusak">Rusak</option>
                             <option value="Baik">Baik</option>
                         </select>
+                        {{-- <select class="form-control" aria-label="Default select example" name="kondisi_sebelum" required>
+                            <option selected>Pilih Kondisi Buku</option>
+                            <option value="Rusak">Rusak</option>
+                            <option value="Baik">Baik</option>
+                        </select> --}}
                     </div>
                 </div>
                 <br>
                 <div class="row g-3">
                     <div class="col">
                         <label for="inputEmail4" class="form-label">Kondisi Setelah Peminjaman</label>
-                        <select class="form-control" aria-label="Default select example" name="kondisi_sesudah">
-                            <option selected>Pilih Kondisi Buku</option>
+                        <select class="form-control" aria-label="Pilih Kondisi" name="kondisi_sesudah">
+                            <option value="">Pilih Kondisi Buku</option>
                             <option value="Rusak">Rusak</option>
                             <option value="Baik">Baik</option>
                         </select>
@@ -58,8 +63,9 @@
                     </div>
                 </div>
                 <br>
+               <p class="text-danger">*Pastikan anda mengisi formulir dengan benar!</p>
                 <div>
-                    <button type="submit" class="btn btn-success shadow">Simpan</button>
+                    <button type="submit" value="Submit" class="btn btn-success shadow">Simpan</button>
                     <button type="button" onclick="history.back()" class="btn btn-danger shadow">Batalkan</button>
                 </div>
                </form>

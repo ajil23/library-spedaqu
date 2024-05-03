@@ -34,7 +34,7 @@ class EbookController extends Controller
 
         if ($request->hasFile('pdf')) {
             $request->validate([
-                'pdf' => 'required|mimes:pdf|max:2048',
+                'pdf' => 'required|mimes:pdf|max:10240',
             ]);
             $pdfFile = $request->file('pdf');
             $filebook  = $pdfFile->store('pdf', 'public');
@@ -65,7 +65,7 @@ class EbookController extends Controller
         }
         if ($request->hasFile('pdf')) {
             $request->validate([
-                'pdf' => 'required|mimes:pdf|max:2048',
+                'pdf' => 'required|mimes:pdf|max:10240',
             ]);
             Storage::delete($dataebook->pdf);
             $pdfFile = $request->file('pdf');

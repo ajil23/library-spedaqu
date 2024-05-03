@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreign('buku_id')->references('id')->on('buku')->onDelete('cascade');
             $table->string('nama');
             $table->string('kondisi_sebelum');
-            $table->string('kondisi_sesudah');
+            $table->string('kondisi_sesudah')->nullable();
             $table->date('peminjaman');
             $table->date('pengembalian');
             $table->timestamps();
