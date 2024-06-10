@@ -60,6 +60,7 @@ Route::middleware([
         Route::get('/edit/{id}', [InventarisController::class, 'edit'])->name('inventaris.edit');
         Route::post('/update/{id}', [InventarisController::class, 'update'])->name('inventaris.update');
         Route::get('/hapus/{id}', [InventarisController::class, 'delete'])->name('inventaris.delete');
+        Route::get('/export', [InventarisController::class, 'export'])->name('inventaris.export');
     });
 });
 

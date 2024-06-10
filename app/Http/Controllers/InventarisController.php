@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\InventoryExport;
 use App\Models\Buku;
 use App\Models\Inventaris;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class InventarisController extends Controller
 {
@@ -38,11 +40,8 @@ class InventarisController extends Controller
 
     public function update(Request $request, $id){
         $invent = Inventaris::find($id);
-        $invent->buku_id = $request->buku_id;
         $invent->nama = $request->nama;
-        $invent->kondisi_sebelum = $request->kondisi_sebelum;
         $invent->kondisi_sesudah = $request->kondisi_sesudah;
-        $invent->peminjaman = $request->peminjaman;
         $invent->pengembalian = $request->pengembalian;
         $invent->update();
         return redirect()->route('inventaris.view')->with('message', 'Data berhasil diubah!');
@@ -52,5 +51,10 @@ class InventarisController extends Controller
         $inventdelet = Inventaris::find($id);
         $inventdelet->delete();
         return redirect()->route('inventaris.view')->with('message', 'Data berhasil dihapus!');
+    }
+
+    public function export() 
+    {
+        return Excel::download(new InventoryExport, 'inventaris.xlsx');
     }
 }
