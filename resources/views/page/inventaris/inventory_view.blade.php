@@ -4,10 +4,16 @@
    <!-- Begin Page Content -->
    <div class="container-fluid">
         <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Inventaris</h1>
-            <a href="{{route('inventaris.add')}}" class="d-none d-sm-inline-block btn btn-success shadow"><i
-                    class="fas fa-plus fa-sm text-white-50"></i> Tambah Data</a>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h1 class="h3 mb-2 text-gray-800">Inventaris</h1>
+                </div>
+                <div class="co text-end mb-2">
+                    <a href="{{route('inventaris.add')}}" class="d-none d-sm-inline-block btn btn-success shadow"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah Data</a>
+                    <a href="{{route('inventaris.export')}}" class="d-none d-sm-inline-block btn btn-warning shadow"><i class="fas fa-file-export fa-sm text-white-50"></i> Export Data</a>
+                </div>
+            </div>
         </div>
 
         <!-- DataTales Example -->

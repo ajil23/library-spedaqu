@@ -22,11 +22,6 @@
                         <label for="inputEmail4" class="form-label">Judul Buku</label>
                         <select class="form-control" name="buku_id" aria-label="Default select example" required disabled>
                             <option value="{{$invent->buku_id}}" selected>{{$invent->buku->judul}}</option>
-                            @foreach ($databuku as $buku)
-                                <option value="{{ $buku->id }}">
-                                    {{ $buku->judul}}
-                                </option>
-                            @endforeach
                           </select>
                     </div>
                     <div class="col">
